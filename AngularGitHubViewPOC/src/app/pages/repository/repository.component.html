@@ -1,0 +1,70 @@
+<div class="card repos-constainer">
+    <div class="card-body">
+        <div class="px-4 py-2">
+            <h1>Repositroy Details</h1>
+
+        </div>
+        <div class="px-4 py-2">
+            <div class="card mb-3" style="max-width: auto;">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img src={{repoDetail?.owner?.avatar_url}} class="card-img-left"
+                            alt={{repoDetail?.owner?.avatar_url}} style="height: auto; max-width: auto;">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <div class="justify-content-md-center">
+                                <div class="table-responsive">
+                                    <table class="table table-striped-columns table-bordered ">
+                                        <tbody>
+                                            <tr>
+                                                <td><b>Repository name</b></td>
+                                                <td>{{repoDetail?.name}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Description</b></td>
+                                                <td>{{repoDetail?.description}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Owner</b></td>
+                                                <td> {{repoDetail?.owner.login}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Created at</b></td>
+                                                <td>{{repoDetail?.created_at}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Update at</b></td>
+                                                <td>{{repoDetail?.updated_at}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>View on GitHub</b></td>
+                                                <td><a href={{repoDetail?.html_url}}>{{repoDetail?.html_url}}</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Languages</b></td>
+                                                <td>{{repoDetail?.language}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Stars</b></td>
+                                                <td>{{repoDetail?.stargazers_count}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Forks</b></td>
+                                                <td>{{repoDetail?.forks_count}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Watchers</b></td>
+                                                <td>{{repoDetail?.watchers_count}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,132 @@
+<div class="card repos-constainer">
+    <div class="card-body">
+        <div class="px-4 py-2">
+            <form [formGroup]="getReposFormGroup" (ngSubmit)="onSubmit()">
+                <div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>
+                                    <h1>GitHub Repositories</h1>
+                                </th>
+                            </tr>
+                            <tr>
+                                <th>
+                                    <h2>Search By</h2>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="m-2">  
+                                <td class="m-2">
+                                    <div class="form-floating mb-3">
+                                        <input type="text" class="form-control" id="repoName" placeholder="Repositories name"
+                                        formControlName="repoName">
+                                    <label for="floatingInput">Repositories name</label>
+                                    </div>                                     
+                                </td>                                  
+                                <td class="m-2">
+                                    <div class="form-floating mb-3">
+                                        <input type="text" class="form-control" id="userName" placeholder="user name"
+                                        formControlName="userName">
+                                    <label for="floatingInput">user name</label>
+                                    </div>                                     
+                                </td>
+                                <td class="m-2">
+                                    <div class="form-floating mb-3">
+                                        <input type="text" class="form-control" id="language" placeholder="language"
+                                        formControlName="language">
+                                    <label for="floatingInput">language</label>
+                                    </div>                                     
+                                </td>
+                                
+                                <td class="m-2">
+                                    <button class="btn btn-success m-2" type="submit">Search</button>
+                                </td>
+                            </tr>
+                            <tr class="m-2">
+                                <td class="m-2">
+                                      <div class="m-2">
+                                        <div class="form-floating">
+                                            <select class="form-select" aria-label="Default select example">
+                                                <option value="Name">Name</option>
+                                                <option value="Description">Description</option>
+                                                <option value="Owner">Owner</option>
+                                                <option value="CreatedAt">Created At</option>
+                                                <option value="UpdatedAt">Updated At</option>
+                                              </select>
+                                            <label for="floatingSelect">Sort By</label>
+                                          </div>
+                                          
+                                      </div>
+        
+                                </td>
+                                <td class="m-2">                                    
+                                      <div class="m-2">
+                                        <div class="form-floating">
+                                            <select class="form-select" aria-label="Default select example">
+                                                <option value="asc">Ascending</option>
+                                                <option value="desc">Descending</option>
+                                              </select>
+                                            <label for="floatingSelect">Sort Type</label>
+                                          </div>
+                                          
+                                          
+                                      </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </form>
+            <div>
+    
+                <div class="justify-content-md-center">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                <th class="px-4 py-2">Name</th>
+                                <th class="px-4 py-2">Description</th>
+                                <th class="px-4 py-2">Owner</th>
+                                <th class="px-4 py-2">Created at</th>
+                                <th class="px-4 py-2">Update at</th>
+                                <th class="px-4 py-2"> View Repo</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+    
+                                <tr key={index} *ngFor="let repo of reposList | paginate
+                                : {
+                                    itemsPerPage: 10,
+                                    currentPage: pageNumber,
+                                    totalItems: numberOfRepos,
+                                  };index as i ">
+                                    <td>{{i+1}}</td>
+                                <td>{{repo.Name}} </td>
+                                <td>{{repo.Description}}</td>
+                                <td>{{repo.Owner}}</td>
+                                <td>{{repo.CreatedAt}}</td>
+                                <td>{{repo.UpdatedAt}}</td>
+                                <td><button type="button" class="btn btn-success" (click)="onClickRepo(repo)">View</button></td>
+                                </tr>   
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="6">
+                                        <div class="d-flex justify-content-center">
+                                            <pagination-controls
+                                              (pageChange)="renderPage($event)"
+                                            ></pagination-controls>
+                                          </div>
+                                    </td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
